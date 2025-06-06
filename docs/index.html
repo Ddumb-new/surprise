@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>I Love You ❤️</title>
+  <title>❤️I Love You Yippeo❤️</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap');
 
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       height: 100vh;
       background: radial-gradient(circle at center, #ff9a9e 0%, #fad0c4 100%);
       overflow: hidden;
@@ -20,12 +25,15 @@
       color: #fff;
       text-shadow: 0 0 10px rgba(255, 0, 100, 0.7);
       position: relative;
+      padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: clamp(2rem, 6vw, 4rem); /* Responsive font size */
       margin-bottom: 1rem;
       animation: pulse 2s infinite ease-in-out;
+      line-height: 1.2;
     }
 
     @keyframes pulse {
@@ -41,18 +49,16 @@
       }
     }
 
-    /* Container for hearts */
     #heart-container {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: none; /* so hearts don't block clicks */
+      pointer-events: none;
       overflow: visible;
     }
 
-    /* Heart shape */
     .heart {
       position: absolute;
       width: 20px;
@@ -94,47 +100,18 @@
         opacity: 0;
       }
     }
+
+    /* Responsive tweaks if needed */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: clamp(1.5rem, 8vw, 3rem);
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>I Love You 
-    Yippeo❤️</h1>
-  <div id="heart-container"></div>
-
-  <script>
-    const container = document.getElementById("heart-container");
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-
-      // Random horizontal start position (within viewport width)
-      heart.style.left = Math.random() * 100 + "vw";
-
-      // Random size between 10px and 30px
-      const size = 10 + Math.random() * 20;
-      heart.style.width = size + "px";
-      heart.style.height = size + "px";
-
-      // Adjust before/after size to match heart size
-      heart.style.setProperty("--size", size + "px");
-      heart.style.setProperty("width", size + "px");
-      heart.style.setProperty("height", size + "px");
-
-      // Random animation duration between 4s and 8s
-      const duration = 4 + Math.random() * 4;
-      heart.style.animationDuration = duration + "s";
-
-      container.appendChild(heart);
-
-      // Remove heart after animation finishes to clean DOM
-      setTimeout(() => {
-        heart.remove();
-      }, duration * 1000);
-    }
-
-    // Generate a heart every 200 milliseconds
-    setInterval(createHeart, 200);
-  </script>
-</body>
-</html>
+  <h1>I Love You<br
